@@ -66,8 +66,11 @@ class HomeController < ApplicationController
 
   private
   def validate_signature
+    puts("===== validate_signature =====")
     body = request.body.read
+    puts("===== body #{body} =====")
     signature = request.env['HTTP_X_LINE_SIGNATURE']
+    puts("===== signature #{signature} =====")
     if LineBot.validate_signature(body, signature)
       error 400 do 'Bad Request' end
     end
