@@ -7,7 +7,7 @@ class HomeController < ApplicationController
   end
 
   def webhook
-    Rails.logger.info("===== webhook =====")
+    Rails.logger.debug("===== webhook =====")
     # body = request.body.read
     # events = line_client.parse_events_from(body)
     # events.each do |event|
