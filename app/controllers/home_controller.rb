@@ -1,5 +1,5 @@
 class HomeController < ApplicationController
-  protect_from_forgery except: :webhook
+  # protect_from_forgery except: :webhook
   before_action :validate_signature, only: [:webhook]
 
   def index
