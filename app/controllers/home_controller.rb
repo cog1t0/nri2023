@@ -1,17 +1,19 @@
 class HomeController < ApplicationController
   protect_from_forgery except: :webhook
-  before_action :validate_signature, only: [:webhook]
+  # before_action :validate_signature, only: [:webhook]
 
   def index
     render plain: 'Hello World!'
   end
 
   def webhook
+    puts("===== webhook =====")
     body = request.body.read
-    events = line_client.parse_events_from(body)
+    puts("===== #{body} =====")
+    events = LineBot.parse_events_from(body)
+    puts("===== #{events} =====")
     events.each do |event|
       @line_id = event['source']['userId']
-      @user = User.find_or_create_by_line_id(@line_id)
       case event
       when Line::Bot::Event::Message
         case event.type
@@ -19,18 +21,21 @@ class HomeController < ApplicationController
           message = 
             {
               type: 'text',
-              text: events.inspect
+              text: event.inspect
             }    
           LineBot.reply_message(event['replyToken'], message)
         else          
         end
       end
     end
-    
   end
 
   def line_bot_send_push_message
-    LineBot.push_message('LINEID', { type: 'text', text: 'Hello World!' })
+    LineBot.push_message('Ufc7fa0885cb79fbd58e6c360de55c8ee', { type: 'text', text: 'Hello World!' })
+  end
+
+  def test
+    render plain: "===== !!!!! #{ENV["LINE_CHANNEL_SECRET"]}"
   end
 
   private

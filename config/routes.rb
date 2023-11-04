@@ -13,4 +13,7 @@ Rails.application.routes.draw do
   get 'forms/show'
   post 'forms/create'
   get 'success', to: "forms#create_success"
+
+  get '/home/test', to: 'home#test'
+  get '/home/line_bot_send_push_message', to: 'home#line_bot_send_push_message'
 end
