@@ -26,11 +26,14 @@ class HomeController < ApplicationController
         end
       end
     end
-    
   end
 
   def line_bot_send_push_message
     LineBot.push_message('LINEID', { type: 'text', text: 'Hello World!' })
+  end
+
+  def test
+    render plain: "===== !!!!! #{ENV["LINE_CHANNEL_SECRET"]}"
   end
 
   private
