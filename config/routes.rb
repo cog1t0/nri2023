@@ -16,4 +16,5 @@ Rails.application.routes.draw do
 
   get '/home/test', to: 'home#test'
   get '/home/line_bot_send_push_message', to: 'home#line_bot_send_push_message'
+  post '/groups/:event_id', to: 'groups#create'
 end
