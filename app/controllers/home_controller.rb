@@ -3,6 +3,7 @@ class HomeController < ApplicationController
   before_action :validate_signature, only: [:webhook]
 
   def index
+    puts "========== home#index =========="
     @event_id = params[:event_id]
     render 'forms/line_login'
 
