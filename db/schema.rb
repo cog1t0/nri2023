@@ -56,7 +56,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_11_04_055951) do
     t.bigint "event_id", null: false, comment: "イベントID"
     t.bigint "group_id", comment: "グループID"
     t.string "name1", null: false, comment: "名前1"
-    t.string "name2", null: false, comment: "名前2"
+    t.string "name2", comment: "名前2"
     t.text "profile", comment: "プロフィール"
     t.string "line_id", null: false, comment: "LINE ID"
     t.datetime "from", comment: "集合可能開始時間"

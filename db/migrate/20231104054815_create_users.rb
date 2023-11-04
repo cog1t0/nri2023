@@ -4,8 +4,9 @@ class CreateUsers < ActiveRecord::Migration[7.0]
       t.references :icon, null: false, foreign_key: true, comment: 'アイコンID'
       t.references :event, null: false, foreign_key: true, comment: 'イベントID'
       t.references :group, comment: 'グループID'
+      # TODO: 二つ名にするか、ニックネームにするか未定のため、mame2はnullableに指定る
       t.string :name1, null: false, comment: '名前1'
-      t.string :name2, null: false, comment: '名前2'
+      t.string :name2, comment: '名前2'
       t.text :profile, comment: 'プロフィール'
       t.string :line_id, null: false, comment: 'LINE ID'
       # 幅広い日時を選択する可能性があるため、nullableにする
