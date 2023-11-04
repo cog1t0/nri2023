@@ -17,6 +17,7 @@ docker-compose build --no-cache
 ### DB作成
 ```
 dip rails db:create
+dip rails db:migrate
 ```
 
 ### database.ymlの書き換え
@@ -31,15 +32,15 @@ default: &default
 
 development:
   <<: *default
-  database: myapp_development
+  database: nri2023_development
 
 test:
   <<: *default
-  database: myapp_test
+  database: nri2023_test
 
 production:
   <<: *default
-  database: myapp_production
+  database: nri2023_production
 ```
 
 ### サーバー起動
