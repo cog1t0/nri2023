@@ -31,7 +31,7 @@ class HomeController < ApplicationController
   end
 
   def line_bot_send_push_message
-    LineBot.push_message('LINEID', { type: 'text', text: 'Hello World!' })
+    LineBot.push_message('Ufc7fa0885cb79fbd58e6c360de55c8ee', { type: 'text', text: 'Hello World!' })
   end
 
   def test
