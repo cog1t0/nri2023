@@ -89,6 +89,9 @@ GEM
       irb (>= 1.5.0)
       reline (>= 0.3.1)
     dotenv (2.8.1)
+    dotenv-rails (2.8.1)
+      dotenv (= 2.8.1)
+      railties (>= 3.2)
     erubi (1.12.0)
     event_stream_parser (0.3.0)
     faraday (2.7.11)
@@ -240,7 +243,7 @@ DEPENDENCIES
   bootsnap
   capybara
   debug
-  dotenv
+  dotenv-rails
   importmap-rails
   jbuilder
   line-bot-api
@@ -259,4 +262,4 @@ RUBY VERSION
    ruby 3.2.2p53
 
 BUNDLED WITH
-   2.4.14
+   2.4.21
