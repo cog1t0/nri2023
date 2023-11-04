@@ -7,9 +7,9 @@ class HomeController < ApplicationController
   end
 
   def webhook
-    body = request.body.read
-    events = line_client.parse_events_from(body)
-    Rails.logger.info(events)
+    Rails.logger.info("===== webhook =====")
+    # body = request.body.read
+    # events = line_client.parse_events_from(body)
     # events.each do |event|
     #   @line_id = event['source']['userId']
     #   @user = User.find_or_create_by_line_id(@line_id)
