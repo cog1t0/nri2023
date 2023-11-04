@@ -4,10 +4,10 @@ class HomeController < ApplicationController
 
   def index
     puts "========== home#index =========="
-    @event_id = params[:event_id]
-    render 'forms/line_login'
+    # @event_id = params[:event_id]
+    # render 'forms/line_login'
 
-    # render plain: 'Hello World!'
+    render plain: 'Hello World!'
   end
 
   def webhook
