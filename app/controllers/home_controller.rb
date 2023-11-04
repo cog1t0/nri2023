@@ -1,6 +1,6 @@
 class HomeController < ApplicationController
   protect_from_forgery except: :webhook
-  before_action :validate_signature, only: [:webhook]
+  # before_action :validate_signature, only: [:webhook]
 
   def index
     render plain: 'Hello World!'
@@ -9,23 +9,24 @@ class HomeController < ApplicationController
   def webhook
     body = request.body.read
     events = line_client.parse_events_from(body)
-    events.each do |event|
-      @line_id = event['source']['userId']
-      @user = User.find_or_create_by_line_id(@line_id)
-      case event
-      when Line::Bot::Event::Message
-        case event.type
-        when Line::Bot::Event::MessageType::Text
-          message = 
-            {
-              type: 'text',
-              text: events.inspect
-            }    
-          LineBot.reply_message(event['replyToken'], message)
-        else          
-        end
-      end
-    end
+    Rails.logger.info(events)
+    # events.each do |event|
+    #   @line_id = event['source']['userId']
+    #   @user = User.find_or_create_by_line_id(@line_id)
+    #   case event
+    #   when Line::Bot::Event::Message
+    #     case event.type
+    #     when Line::Bot::Event::MessageType::Text
+    #       message = 
+    #         {
+    #           type: 'text',
+    #           text: events.inspect
+    #         }    
+    #       LineBot.reply_message(event['replyToken'], message)
+    #     else          
+    #     end
+    #   end
+    # end
   end
 
   def line_bot_send_push_message
