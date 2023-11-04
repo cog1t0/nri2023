@@ -12,24 +12,22 @@ class HomeController < ApplicationController
     puts("===== #{body} =====")
     events = LineBot.parse_events_from(body)
     puts("===== #{events} =====")
-    puts("===== user_id #{event['source']['userId']}")
-    # events.each do |event|
-    #   @line_id = event['source']['userId']
-    #   @user = User.find_or_create_by_line_id(@line_id)
-    #   case event
-    #   when Line::Bot::Event::Message
-    #     case event.type
-    #     when Line::Bot::Event::MessageType::Text
-    #       message = 
-    #         {
-    #           type: 'text',
-    #           text: events.inspect
-    #         }    
-    #       LineBot.reply_message(event['replyToken'], message)
-    #     else          
-    #     end
-    #   end
-    # end
+    events.each do |event|
+      @line_id = event['source']['userId']
+      case event
+      when Line::Bot::Event::Message
+        case event.type
+        when Line::Bot::Event::MessageType::Text
+          message = 
+            {
+              type: 'text',
+              text: event.inspect
+            }    
+          LineBot.reply_message(event['replyToken'], message)
+        else          
+        end
+      end
+    end
   end
 
   def line_bot_send_push_message
