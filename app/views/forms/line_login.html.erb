@@ -1,2 +1,29 @@
 <%# TODO: ラインログインを行う %>
-<%= link_to 'LINEログイン', forms_show_path(event_id: @event_id) %>
+<div class="line-login">
+    <%= link_to 'LINEでログイン', line_login_path, class: 'line-login-button' %>
+</div>
+
+
+<style>
+  .line-login {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* Center the button vertically */
+}
+
+.line-login-button {
+  background-color: #00c300; /* LINEの緑色 */
+  color: white;
+  padding: 10px 20px;
+  border-radius: 5px; /* 角を丸くする */
+  text-decoration: none;
+  font-weight: bold;
+  display: inline-block;
+  transition: background-color 0.3s;
+}
+
+.line-login-button:hover {
+  background-color: #009900; /* 濃い緑色 */
+}
+</style>
