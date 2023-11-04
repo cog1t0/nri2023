@@ -32,15 +32,15 @@ default: &default
 
 development:
   <<: *default
-  database: myapp_development
+  database: nri2023_development
 
 test:
   <<: *default
-  database: myapp_test
+  database: nri2023_test
 
 production:
   <<: *default
-  database: myapp_production
+  database: nri2023_production
 ```
 
 ### サーバー起動
