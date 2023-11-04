@@ -17,6 +17,7 @@ docker-compose build --no-cache
 ### DB作成
 ```
 dip rails db:create
+dip rails db:migrate
 ```
 
 ### database.ymlの書き換え
