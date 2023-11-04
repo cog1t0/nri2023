@@ -1,4 +1,6 @@
 class HomeController < ApplicationController
+  protect_from_forgery except: :webhook
+  
   def index
     render plain: 'Hello World!'
   end
