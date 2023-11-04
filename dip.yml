@@ -57,7 +57,7 @@ interaction:
 
   deploy:
     description: Deploy to Heroku
-    command: heroku container:login && heroku container:push web -a myapp && heroku container:release web -a myapp && heroku run rake db:migrate -a myapp
+    command: heroku container:login && heroku container:push web -a nri2023 && heroku container:release web -a nri2023 && heroku run rake db:migrate -a nri2023
 
 provision:
   - dip compose down --volumes
