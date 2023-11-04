@@ -10,8 +10,8 @@ class HomeController < ApplicationController
     puts("===== webhook =====")
     body = request.body.read
     puts("===== #{body} =====")
-    # events = line_client.parse_events_from(body)
-    # puts("===== #{events} =====")
+    events = LineBot.parse_events_from(body)
+    puts("===== #{events} =====")
     # events.each do |event|
     #   @line_id = event['source']['userId']
     #   @user = User.find_or_create_by_line_id(@line_id)
