@@ -56,7 +56,7 @@ class FormsController < ApplicationController
   def profile
     # ユーザーが見つからなかったら仮でユーザーを作成する
     debugger
-    @user = User.find_by(id: session[:user_id]) || Event.first.users.build(line_id: "line_id", icon_id: Icon.first.id)
+    @user = User.find_by(id: session[:user_id]) || Event.first.users.build(line_id: "line_id", icon_id: Icon.second.id)
     @icon = @user.icon
 
     render 'forms/profile'
