@@ -20,7 +20,7 @@
       <div>
         <%= form.label :from, '参加可能時間' %>
         <%= form.time_select :from, {default: Date.today + 19.hour} %>
-        <%= form.time_select :to, {default: Date.today + 17.hour}  %>
+        <%= form.time_select :to, {default: Date.today + 21.hour}  %>
       </div>
       <div>
         <%= form.hidden_field :line_id, value: @user.line_id %>
