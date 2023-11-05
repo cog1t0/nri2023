@@ -57,7 +57,21 @@ class HomeController < ApplicationController
 
 
   def line_bot_send_push_message
-    LineBot.push_message('Ufc7fa0885cb79fbd58e6c360de55c8ee', { type: 'text', text: 'Hello World!' })
+    LineBot.push_message('Ufc7fa0885cb79fbd58e6c360de55c8ee', {
+      type: 'text',
+      text: "チーム：キャリア相談のみんな！呑みにいこうよ！！"
+    })
+
+    LineBot.push_message('Ufc7fa0885cb79fbd58e6c360de55c8ee', 
+    {
+      type: 'location',
+      "title": "蒲田西口",
+      "address": "東京都大田区西蒲田７丁目４７",
+      "latitude": 35.6304918,
+      "longitude": 139.7422115
+    })
+
+    return :success
   end
 
   def test
