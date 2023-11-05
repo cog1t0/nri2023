@@ -17,12 +17,36 @@
         <%= form.label :profile, '自己紹介' %>
         <%= form.text_area :profile, required: true %>
       </div>
-      <div class="field">
+      <div>
+        <%= form.label :profile, 'どこへ行きたいか？' %><br>
+        <select name="example">
+<option value="サンプル1">和食</option>
+<option value="サンプル2">中華</option>
+<option value="サンプル3">ラーメン</option>
+<option value="サンプル3">焼き肉</option>
+</select>
+      <div>
+        <%= form.label :profile, '性格' %></br>
+        <select name="example">
+<option value="サンプル1">内向的</option>
+<option value="サンプル2">外交的</option>
+<option value="サンプル2">おしゃべりが好き</option>
+<option value="サンプル2">ゆっくり飲みたい</option>
+<option value="サンプル2">たくさん飲みたい</option>
+</select>
       </div>
+            <div>
+        <%= form.label :profile, '話したいこと' %></br>
+        <select name="example">
+<option value="サンプル1">自分の研究のことを話したい</option>
+<option value="サンプル3">キャリアのことを話したい</option>
+<option value="サンプル3">趣味のことを話したい</option>
+<option value="サンプル2">人の話が聞きたい</option>
+</select>
       <div class="field">
         <%= form.label :from, '参加可能時間' %><br>
         <%= form.time_select :from, {default: Date.today + 19.hour} %>
-        <%= form.time_select :to, {default: Date.today + 17.hour}  %>
+        <%= form.time_select :to, {default: Date.today + 21.hour}  %>
       </div>
       <div>
         <%= form.hidden_field :line_id, value: @user.line_id %>
