@@ -35,7 +35,7 @@ class FormsController < ApplicationController
 
 
       user.event_id = Event.first.id
-      user.icon_id = Icon.second.id
+      user.icon_id = Icon.where( 'id >= ?', rand(Icon.count) + 1 ).first.id
       user.name1 = "名無しの大田区トラベラー"
       user.name2 = "スシコラ使い"
 
@@ -55,7 +55,6 @@ class FormsController < ApplicationController
 
   def profile
     # ユーザーが見つからなかったら仮でユーザーを作成する
-    debugger
     @user = User.find_by(id: session[:user_id]) || Event.first.users.build(line_id: "line_id", icon_id: Icon.second.id)
     @icon = @user.icon
 
@@ -63,11 +62,11 @@ class FormsController < ApplicationController
   end
 
   def create
-    @user = User.new(user_params)
+    @user = User.find_by(line_id: user_params[:line_id]) || User.first
+
     # TODO: アイコンのURLをセットする
-    @user.icon_id = Icon.first.id
     
-    if @user.save
+    if @user.update(user_params)
       redirect_to success_path
     else
       render 'forms/profile'

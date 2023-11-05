@@ -5,22 +5,24 @@
     <%= form_with model: @user, url: forms_create_path, method: :post, local: true do |form| %>
       <div>
         <%# <%= form.image :icon_url, value: "https://cdn2.thecatapi.com/images/0XYvRd7oD.jpg" %>
-        <div>
-          <%= image_tag @icon.image_url, size: "400x300" %>
-        <div>
+        <div class="image">
+          <%= image_tag @icon.image_url, size: "150x150" %>
+        </div>
       </div>
-      <div>
+      <div class="field">
         <%= form.label :name1, 'ニックネーム' %>
-        <%= form.text_field :name1, value: @user.name1 %>
+        <%= form.text_field :name1, value: @user.name1, required: true %>
       </div>
-      <div>
+      <div class="field">
         <%= form.label :profile, '自己紹介' %>
-        <%= form.text_area :profile %>
+        <%= form.text_area :profile, required: true %>
       </div>
-      <div>
-        <%= form.label :from, '参加可能時間' %>
+      <div class="field">
+      </div>
+      <div class="field">
+        <%= form.label :from, '参加可能時間' %><br>
         <%= form.time_select :from, {default: Date.today + 19.hour} %>
-        <%= form.time_select :to, {default: Date.today + 21.hour}  %>
+        <%= form.time_select :to, {default: Date.today + 17.hour}  %>
       </div>
       <div>
         <%= form.hidden_field :line_id, value: @user.line_id %>
@@ -58,6 +60,10 @@ body {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
+    display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
 }
 
 form {
@@ -151,9 +157,15 @@ button:hover {
   font-size: 20px;
 }
 
+.image {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 @media (max-width: 425px) {
   form {
-    width: 100%;
+    width: 70%;
   }
 }
 
